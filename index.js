@@ -32,12 +32,12 @@ server.on('connection', function (socket) {
                 for (let client of Object.keys(clients)) {
                     if (client.slice(0, -1).includes("cast-main")) {
                         clients[client].send(JSON.stringify({
-                            type: 'newSheet'
+                            type: 'newSheet' //csatlakozási értesítés
                         }))
                     }
                 }
             }
-            clients[clientID] = socket;
+            clients[clientID] = socket; //hozzáadás a listához
             console.log(`[${clientID}] connected (${Object.keys(clients).length} online)`);
         }
 
